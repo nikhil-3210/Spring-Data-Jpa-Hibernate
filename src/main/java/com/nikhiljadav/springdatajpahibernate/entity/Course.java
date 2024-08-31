@@ -33,4 +33,7 @@ public class Course extends BaseEntity {
             }
     )
     private List<Author> authors;
+
+    @OneToMany(mappedBy = "course")
+    private List<Section> sections;
 }
