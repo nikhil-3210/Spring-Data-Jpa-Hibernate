@@ -14,9 +14,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "order_info")
 public class OrderInfo {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+    @EmbeddedId
+    private OrderId orderId;
 
     private String product;
     private int price;
