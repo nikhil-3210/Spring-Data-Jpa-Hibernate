@@ -10,4 +10,11 @@ public class SpringDataJpaHibernateApplication {
 		SpringApplication.run(SpringDataJpaHibernateApplication.class, args);
 	}
 
+//	@Bean
+//	public CommandLineRunner commandLineRunner(ResourceRepository resourceRepository){
+//		return args -> {
+//			var video = Video.builder().name("Video").length(10).build();
+//			resourceRepository.save(video);
+//		};
+//	}
 }

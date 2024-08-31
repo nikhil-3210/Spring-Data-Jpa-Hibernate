@@ -1,21 +1,20 @@
 package com.nikhiljadav.springdatajpahibernate.entity;
 
-import com.nikhiljadav.springdatajpahibernate.entity.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 @Entity
 @Table(name = "resource")
-public class Resource extends BaseEntity {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "resource_type")
+public class Resource {
 
     @Id
     @GeneratedValue
