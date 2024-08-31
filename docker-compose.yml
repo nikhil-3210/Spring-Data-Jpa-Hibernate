@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: springdatajpahibernate
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      -  postgres-db
+    ports:
+      - 5433:5432
+  spring-data-jpa-hibernate:
+    image: openjdk:17-jdk-slim
+    container_name: spring-data-jpa-hibernate
+    ports:
+      - 8081-8081
+    volumes:
+      - ./target/springdatajpahibernate-0.0.1-SNAPSHOT.jar:/app/spring-data-jpa-hibernate.jar
+    command: ["java", "-jar", "/app/spring-data-jpa-hibernate.jar"]
+    networks:
+      - spring-data-jpa-hibernate
+      - postgres-db
+    depends_on:
+      - postgres
+
+
+networks:
+  postgres-db:
+  spring-data-jpa-hibernate:
+    driver: bridge
+
+volumes:
+  postgres_data:

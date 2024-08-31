@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Spring Data JPA Hibernate
+  datasource:
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://postgres:5432/springdatajpahibernate //for container
+    url: jdbc:postgresql://localhost:5433/springdatajpahibernate #for local
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
