@@ -1,10 +1,7 @@
 package com.nikhiljadav.springdatajpahibernate.entity;
 
 import com.nikhiljadav.springdatajpahibernate.entity.base.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,4 +22,8 @@ public class Lecture extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "section_id")
     private Section section;
+
+    @OneToOne
+    @JoinColumn(name = "resource")
+    private Resource resource;
 }

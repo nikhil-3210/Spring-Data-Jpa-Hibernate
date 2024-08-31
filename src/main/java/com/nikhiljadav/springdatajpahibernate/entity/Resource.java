@@ -1,10 +1,7 @@
 package com.nikhiljadav.springdatajpahibernate.entity;
 
 import com.nikhiljadav.springdatajpahibernate.entity.base.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,8 +14,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-@Table(name = "resources")
-public class Resources extends BaseEntity {
+@Table(name = "resource")
+public class Resource extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -26,4 +23,8 @@ public class Resources extends BaseEntity {
     private String name;
     private int size;
     private String url;
+
+    @OneToOne
+    @JoinColumn(name = "lecture")
+    private Lecture lecture;
 }
